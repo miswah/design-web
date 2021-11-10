@@ -1,0 +1,32 @@
+<link href="https://css.gg/arrow-left.css" rel="stylesheet" />
+<div class="container mt-5">
+  <div class="go_back">
+    <a [routerLink]="['/home']"><i class="gg-arrow-left"></i></a>
+  </div>
+  <div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+      <img [src]="design.img_url" class="img-fluid" alt="" />
+      <div class="text-center">
+        <h2>{{ design.title }}</h2>
+        <span style="color: orange">{{ design.type }}</span>
+        <p>{{ design.description }}</p>
+      </div>
+
+      <a [routerLink]="['/edit', design._id]"
+        ><button class="btn btn-primary float-left">Edit</button></a
+      >
+
+      <a [routerLink]="['/edit-image', design._id]"
+        ><button class="btn btn-primary" style="margin-left: 11rem">
+          Edit Image
+        </button></a
+      >
+
+      <button class="btn btn-danger float-right" (click)="delete(design._id)">
+        Delete
+      </button>
+    </div>
+    <div class="col-md-3"></div>
+  </div>
+</div>

@@ -1,0 +1,60 @@
+<link href="https://css.gg/arrow-left.css" rel="stylesheet" />
+
+<div class="container">
+  <div class="go_back">
+    <a [routerLink]="['/home']"><i class="gg-arrow-left"></i></a>
+  </div>
+  <div class="row mt-5">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+      <div class="card-body">
+        <h6 class="card-title">Edit Design Data</h6>
+        <form class="forms-sample" #editForm="ngForm">
+          <div class="form-group">
+            <!-- title -->
+            <label for="exampleInputEmail1">Design Title</label>
+            <input
+              type="text"
+              class="form-control"
+              id="exampleInputEmail1"
+              name="title"
+              [(ngModel)]="title"
+              oninput="this.value = this.value.replace(/[^A-z. ]/g, '').replace(/(\..*)\./g, '$1');"
+            />
+            <!-- type -->
+            <label for="exampleInputEmail1">Design Type</label>
+            <input
+              type="text"
+              class="form-control"
+              id="exampleInputEmail1"
+              name="type"
+              [(ngModel)]="type"
+              oninput="this.value = this.value.replace(/[^A-z. ]/g, '').replace(/(\..*)\./g, '$1');"
+            />
+            <!-- description -->
+            <label for="exampleInputEmail1">Design description</label>
+            <input
+              type="text"
+              class="form-control"
+              id="exampleInputEmail1"
+              name="description"
+              [(ngModel)]="description"
+              oninput="this.value = this.value.replace(/[^A-z. ]/g, '').replace(/(\..*)\./g, '$1');"
+            />
+          </div>
+          <button
+            type="submit"
+            class="btn btn-primary mr-2"
+            (click)="update(editForm.value)"
+          >
+            Submit
+          </button>
+          <button class="btn btn-light">
+            <a routerLink="../../" style="color: black">Cancel</a>
+          </button>
+        </form>
+      </div>
+    </div>
+    <div class="col-md-4"></div>
+  </div>
+</div>

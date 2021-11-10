@@ -1,0 +1,35 @@
+<link href="https://css.gg/arrow-left.css" rel="stylesheet" />
+
+<div class="container">
+  <div class="go_back">
+    <a [routerLink]="['/home']"><i class="gg-arrow-left"></i></a>
+  </div>
+  <div class="row mt-5">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+      <div class="card-body">
+        <h6 class="card-title">Edit Design Data</h6>
+        <form class="forms-sample" #editForm="ngForm">
+          <div style="margin: 2rem 0 2rem 0">
+            <p style="margin-bottom: 1rem">Brand Icon</p>
+            <div>
+              <img [src]="selectedFile" class="img-fluid" alt="" />
+            </div>
+            <input type="file" (change)="Upload($event)" accept="image/*" />
+          </div>
+          <button
+            type="submit"
+            class="btn btn-primary mr-2"
+            (click)="update(editForm.value)"
+          >
+            Submit
+          </button>
+          <button class="btn btn-light">
+            <a routerLink="../../" style="color: black">Cancel</a>
+          </button>
+        </form>
+      </div>
+    </div>
+    <div class="col-md-4"></div>
+  </div>
+</div>

@@ -1,0 +1,98 @@
+<link href="https://css.gg/arrow-left.css" rel="stylesheet" />
+
+<div class="container">
+  <div class="go_back">
+    <a [routerLink]="['/home']"><i class="gg-arrow-left"></i></a>
+  </div>
+  <div class="row mt-5">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+      <div class="card-body">
+        <h6 class="card-title">Edit Design Data</h6>
+        <form class="forms-sample" #editForm="ngForm">
+          <div class="form-group">
+            <!-- title -->
+            <label for="exampleInputEmail1">Design Title</label>
+            <input
+              type="text"
+              class="form-control"
+              id="exampleInputEmail1"
+              name="title"
+              [(ngModel)]="title"
+              oninput="this.value = this.value.replace(/[^A-z. ]/g, '').replace(/(\..*)\./g, '$1');"
+            />
+            <!-- type -->
+            <label for="exampleInputEmail1">Design Type</label>
+            <input
+              type="text"
+              class="form-control"
+              id="exampleInputEmail1"
+              name="type"
+              [(ngModel)]="type"
+              oninput="this.value = this.value.replace(/[^A-z. ]/g, '').replace(/(\..*)\./g, '$1');"
+            />
+            <!-- description -->
+            <label for="exampleInputEmail1">Design description</label>
+            <input
+              type="text"
+              class="form-control"
+              id="exampleInputEmail1"
+              name="description"
+              [(ngModel)]="description"
+              oninput="this.value = this.value.replace(/[^A-z. ]/g, '').replace(/(\..*)\./g, '$1');"
+            />
+            <!-- rating -->
+            <label for="exampleInputEmail1">Rating</label>
+
+            <input
+              type="number"
+              class="form-control"
+              id="exampleInputEmail1"
+              name="rating"
+              [(ngModel)]="rating"
+            />
+            <span *ngIf="rating > 5">
+              <label for="" style="color: red"
+                >Please Keep the rating under 5</label
+              >
+            </span>
+            <button
+              *ngIf="!designMade"
+              class="btn btn-primary"
+              (click)="makeDesign(editForm.value)"
+            >
+              Next
+            </button>
+            <span *ngIf="designMade">
+              <div style="margin: 2rem 0 2rem 0">
+                <p style="margin-bottom: 1rem">Brand Icon</p>
+                <div>
+                  <img [src]="selectedFile" class="img-fluid" alt="" />
+                </div>
+                <input
+                  type="file"
+                  (change)="onIconUpload($event)"
+                  accept="image/*"
+                />
+                <p *ngIf="!icon" class="text-danger mt-1">
+                  Design Image is required
+                </p>
+              </div>
+            </span>
+          </div>
+          <button
+            type="submit"
+            class="btn btn-primary mr-2"
+            (click)="setBrand(editForm.value)"
+          >
+            Submit
+          </button>
+          <button class="btn btn-light">
+            <a routerLink=".." style="color: black">Cancel</a>
+          </button>
+        </form>
+      </div>
+    </div>
+    <div class="col-md-4"></div>
+  </div>
+</div>

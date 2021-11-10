@@ -1,0 +1,47 @@
+@import url("https://fonts.googleapis.com/css2?family=Mochiy+Pop+P+One&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Nunito&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Work+Sans&display=swap");
+
+span {
+  font-family: "Mochiy Pop P One", sans-serif;
+}
+
+p {
+  font-family: "Nunito", sans-serif;
+}
+
+h2 {
+  font-family: "Work Sans", sans-serif;
+}
+
+.left {
+  margin-right: 10rem;
+}
+
+.right {
+  margin-left: 10rem;
+}
+
+.go_back {
+  position: absolute;
+  margin-top: 3rem;
+  padding: 1rem;
+  border: 1px black solid;
+  border-radius: 50%;
+  margin-left: -3rem;
+}
+
+.go_back > a {
+  text-decoration: none;
+  color: black;
+}
+
+.go_back > a:hover {
+  color: orange;
+}
+
+.go_back:hover {
+  border: 1px orange solid;
+}
